@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AndroidMaterialDesign</string>
+    <string name="email_hint">e-mail address</string>
+    <string name="password_hint">password</string>
+    <string name="login_button">Login!</string>
+    <string name="login_title">Welcome!</string>
+    <string name="todo">TODO</string>
+    <string name="don_t_have_an_account_register_now">Don\'t have an account? Register now!</string>
+    <string name="coming_soon">Coming soon...</string>
+    <string name="return_to_login_page">Return to login page</string>
+</resources>
