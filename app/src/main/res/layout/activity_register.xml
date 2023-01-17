@@ -11,10 +11,34 @@
         android:id="@+id/textView_instructions"
         android:layout_width="match_parent"
         android:layout_height="58dp"
-        android:text="@string/insert_your_personal_data_in_text_fields_below_and_click_register_button_to_create_an_account"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="16sp" />
+        android:elevation="4dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="@string/insert_data_in_fields_below"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:background="@drawable/epic_text_background"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="379dp"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:endIconMode="clear_text"
+        app:startIconDrawable="@drawable/ic_baseline_person_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_login"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/Username"
+            android:textColorHint="#757575"
+            android:textSize="16sp"
+            app:endIconMode="clear_text"
+            app:startIconDrawable="@drawable/ic_baseline_person_24" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -71,7 +95,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:endIconMode="clear_text"
         app:startIconDrawable="@drawable/ic_baseline_lock_24"
-        android:hint="@string/password">
+        android:hint="@string/Password">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_password"

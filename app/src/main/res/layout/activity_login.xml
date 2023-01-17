@@ -34,14 +34,13 @@
         app:helperText="Required*"
         app:helperTextEnabled="false"
         app:helperTextTextColor="@color/design_default_color_error"
-        app:hintEnabled="false"
         app:startIconDrawable="@drawable/ic_baseline_contact_mail_24">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/email_hint"
+            android:hint="@string/username"
             android:inputType="textEmailAddress"
             android:textColorHint="#757575"
             tools:ignore="TextContrastCheck" />
@@ -57,7 +56,6 @@
         app:helperText="Required*"
         app:helperTextEnabled="false"
         app:helperTextTextColor="@color/design_default_color_error"
-        app:hintEnabled="false"
         app:startIconDrawable="@drawable/ic_baseline_lock_24">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -67,7 +65,6 @@
             android:hint="@string/password_hint"
             android:inputType="textPassword"
             android:textColorHint="#616161"
-
             tools:ignore="TextContrastCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 

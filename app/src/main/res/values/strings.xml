@@ -12,9 +12,11 @@
     <string name="name">Name</string>
     <string name="surname">Surname</string>
     <string name="email">Email</string>
-    <string name="password">Password</string>
+    <string name="Password">Password</string>
     <string name="insert_your_personal_data_in_text_fields_below_and_click_register_button_to_create_an_account">Insert your personal data in text fields below, and click register button to create an account!</string>
     <string name="note_title">Note title</string>
     <string name="note_description">Note description</string>
     <string name="empty">empty</string>
+    <string name="Username">Username</string>
+    <string name="insert_data_in_fields_below">Insert data in fields below:</string>
 </resources>
