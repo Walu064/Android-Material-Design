@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
     private void initFrontComponents(){
         this.emailInputTextField = findViewById(R.id.emailEditText);
         this.passwordInputTextField = findViewById(R.id.passwordEditText);
-        this.loginButton = findViewById(R.id.returnButton);
+        this.loginButton = findViewById(R.id.registerButton);
         this.registerTextView = findViewById(R.id.textViewRegister);
         this.textInputLayoutEmail = findViewById(R.id.textInputLayoutEmail);
         this.textInputLayoutPassword = findViewById(R.id.textInputLayoutPassword);
