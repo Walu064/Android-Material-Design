@@ -57,7 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
         password = inputPassword.getText().toString();
         String insertedDataAsJson = "{\'userEmail\' : \'"+email+"\', \'userPassword\' : \'"+password+"\', \'userName\' : \'"+name+"\', \'userSurname\' : \'"+surname+"\'}";
         JSONObject jsonObject = new JSONObject(insertedDataAsJson);
-        String requestUrl = "http://192.168.56.1:8080/users/add";
+        String requestUrl = "http://127.0.0.1:8080/users/add";
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonObjectRequest objectRequest = new JsonObjectRequest(
                 Request.Method.POST, requestUrl, jsonObject,

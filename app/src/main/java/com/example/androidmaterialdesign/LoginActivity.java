@@ -36,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
             this.insertedPassword = getPasswordFromTextField();
             if(this.insertedEmail.equals("testUser123") && this.insertedPassword.equals("testPassword123")) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra("loggedUserEmail", this.insertedEmail);
                 startActivity(intent);
             } else if(this.insertedEmail.equals("testUser123") && !this.insertedPassword.equals("testPassword123")){
                 textInputLayoutEmail.setHelperText("");

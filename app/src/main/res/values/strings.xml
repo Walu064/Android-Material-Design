@@ -16,4 +16,5 @@
     <string name="insert_your_personal_data_in_text_fields_below_and_click_register_button_to_create_an_account">Insert your personal data in text fields below, and click register button to create an account!</string>
     <string name="note_title">Note title</string>
     <string name="note_description">Note description</string>
+    <string name="empty">empty</string>
 </resources>

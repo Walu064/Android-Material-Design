@@ -3,6 +3,7 @@ package com.example.androidmaterialdesign;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,10 +21,12 @@ public class MainActivity extends AppCompatActivity {
 
     private TextInputEditText noteTitleEditText;
     private TextInputEditText noteDescriptionEditText;
-
     private final List<Note> notesList = new ArrayList<Note>();
     private NotesAdapter notesAdapter;
 
+    private String actualLoggedUser;
+
+    @SuppressLint({"MissingInflatedId", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
         notesRecyclerView.setAdapter(notesAdapter);
         notesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        actualLoggedUser = getIntent().getExtras().getString("loggedUserEmail");
+        TextView textViewWelcomeUsername = findViewById(R.id.textView_welcomeUsername);
+        textViewWelcomeUsername.setText("Welcome, "+actualLoggedUser+"!");
         addNoteFab.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
@@ -47,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 String description = Objects.requireNonNull(noteDescriptionEditText.getText()).toString();
 
                 if (!title.isEmpty() && !description.isEmpty()) {
-                    Note note = new Note(title, description);
+                    Note note = new Note(actualLoggedUser, title, description);
                     notesList.add(note);
                     notesAdapter.notifyDataSetChanged();
 
