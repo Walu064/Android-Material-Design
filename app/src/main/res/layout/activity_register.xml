@@ -7,10 +7,18 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <ImageView
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/todo"
+        android:src="@drawable/ic_launcher_foreground"
+        tools:ignore="ImageContrastCheck" />
+
     <TextView
         android:id="@+id/textView_instructions"
         android:layout_width="match_parent"
-        android:layout_height="58dp"
+        android:layout_height="74dp"
+        android:background="@drawable/epic_text_background"
         android:elevation="4dp"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
@@ -18,7 +26,6 @@
         android:text="@string/insert_data_in_fields_below"
         android:textColor="@android:color/black"
         android:textSize="24sp"
-        android:background="@drawable/epic_text_background"
         android:textStyle="bold" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -26,7 +33,9 @@
         android:layout_height="wrap_content"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:endIconMode="clear_text"
-        app:startIconDrawable="@drawable/ic_baseline_person_24">
+        app:startIconDrawable="@drawable/ic_baseline_person_24"
+        app:helperText="Required*"
+        app:helperTextTextColor="@color/design_default_color_error">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_login"
@@ -95,10 +104,33 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:endIconMode="clear_text"
         app:startIconDrawable="@drawable/ic_baseline_lock_24"
-        android:hint="@string/Password">
+        android:hint="@string/Password"
+        app:helperText="Required*"
+        app:helperTextTextColor="@color/design_default_color_error">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textColorHint="#757575" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TextInputLayout_confirmPassword"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/confirm_password"
+        app:endIconMode="clear_text"
+        app:startIconDrawable="@drawable/ic_baseline_lock_24"
+        app:helperText=""
+        app:helperTextEnabled="true"
+        app:helperTextTextColor="@color/design_default_color_error">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_ConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"

@@ -1,22 +1,30 @@
 package com.example.androidmaterialdesign;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.util.Objects;
+import org.json.JSONException;
 
+import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
 
     private EditText emailInputTextField, passwordInputTextField;
     private Button loginButton;
-    private String insertedEmail, insertedPassword;
+    private String insertedLogin, insertedPassword;
     private TextView registerTextView;
     private TextInputLayout textInputLayoutEmail, textInputLayoutPassword;
 
@@ -32,27 +40,40 @@ public class LoginActivity extends AppCompatActivity {
 
     private void initListeners(){
         this.loginButton.setOnClickListener(view -> {
-            this.insertedEmail = getEmailFromTextField();
+            this.insertedLogin = getEmailFromTextField();
             this.insertedPassword = getPasswordFromTextField();
-            if(this.insertedEmail.equals("testUser123") && this.insertedPassword.equals("testPassword123")) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                intent.putExtra("loggedUserEmail", this.insertedEmail);
-                startActivity(intent);
-            } else if(this.insertedEmail.equals("testUser123") && !this.insertedPassword.equals("testPassword123")){
-                textInputLayoutEmail.setHelperText("");
-                textInputLayoutPassword.setHelperText("Wrong password!");
-            } else if(!this.insertedEmail.equals("testUser123") && this.insertedPassword.equals("testPassword123")){
-                textInputLayoutEmail.setHelperText("Wrong e-mail address!");
-                textInputLayoutPassword.setHelperText("");
-            } else if(!this.insertedEmail.equals("testUser123") && !this.insertedPassword.equals("testPassword123")){
-                textInputLayoutEmail.setHelperText("Wrong e-mail address!");
-                textInputLayoutPassword.setHelperText("Wrong password!");
-            }
+            String requestUrl = "http://192.168.0.103:8080/user/"+insertedLogin;
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            JsonObjectRequest objectRequest = new JsonObjectRequest(
+                    Request.Method.GET, requestUrl, null,
+                    response -> {
+                        try {
+                            Log.e("REST RESPONSE ", response.getString("userPassword"));
+                            if(insertedPassword.equals(response.getString("userPassword"))){
+                                startMainActivity(insertedLogin);
+                            }else{
+                                textInputLayoutPassword.setHelperText("Wrong password!");
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    },
+                    error ->{ Log.e("REST RESPONSE ", error.toString());
+                        textInputLayoutPassword.setHelperText("User "+insertedLogin+" doesn't exist.");
+                    }
+            );
+            requestQueue.add(objectRequest);
         });
         this.registerTextView.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
             startActivity(intent);
         });
+    }
+
+    private void startMainActivity(String username){
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.putExtra("username", username);
+        startActivity(intent);
     }
 
     private void initFrontComponents(){

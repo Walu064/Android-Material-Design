@@ -1,26 +1,34 @@
-package com.example.androidmaterialdesign;
+package com.example.androidmaterialdesign.model;
 
 public class Note {
 
-    private final String ownerEmail;
-    private final String title;
-    private final String description;
+    private String noteTitle;
+    private final String noteOwner;
+    private String noteContent;
 
-    public Note(String ownerEmail, String title, String description) {
-        this.ownerEmail = ownerEmail;
-        this.title = title;
-        this.description = description;
+    public Note(String noteTitle, String noteContent, String noteOwner) {
+        this.noteTitle = noteTitle;
+        this.noteContent = noteContent;
+        this.noteOwner = noteOwner;
     }
 
-    public String getTitle() {
-        return title;
+    public String getNoteTitle() {
+        return noteTitle;
     }
 
-    public String getDescription() {
-        return description;
+    public String getNoteContent() {
+        return noteContent;
     }
 
-    public String getOwnerEmail() {
-        return ownerEmail;
+    public String getNoteOwner() {
+        return noteOwner;
+    }
+
+    public void setNoteTitle(String noteTitle){
+        this.noteTitle = noteTitle;
+    }
+
+    public void setNoteContent(String noteContent){
+        this.noteContent = noteContent;
     }
 }

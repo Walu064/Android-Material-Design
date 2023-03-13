@@ -17,6 +17,16 @@
         android:maxLines="1"
         android:ellipsize="end"/>
 
+    <EditText
+        android:id="@+id/newTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/insert_new_title_here"
+        android:inputType="textMultiLine"
+        android:minHeight="48dp" />
+
     <TextView
         android:id="@+id/note_description"
         android:layout_width="match_parent"
@@ -28,6 +38,16 @@
         android:lineSpacingExtra="4dp"
         android:paddingTop="8dp"/>
 
+    <EditText
+        android:id="@+id/newContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/insert_new_content_here"
+        android:inputType="textMultiLine"
+        android:minHeight="48dp" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="68dp">
@@ -37,16 +57,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
+            android:contentDescription="TODO"
+            android:focusable="true"
+            app:backgroundTint="@color/cardview_light_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/floatingActionButton_deleteNote"
             app:layout_constraintHorizontal_bias="0.969"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_baseline_edit_note_24"
-            tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck"
-            app:backgroundTint="@color/cardview_light_background"
-            android:contentDescription="TODO"
-            android:focusable="true" />
+            tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck,DuplicateSpeakableTextCheck" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingActionButton_deleteNote"
@@ -62,6 +82,20 @@
             tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck"
             app:backgroundTint="@color/cardview_light_background"
             android:contentDescription="TODO" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton_acceptChanges"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/floatingActionButton_editNote"
+            app:layout_constraintHorizontal_bias="0.943"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_check_24"
+            tools:ignore="SpeakableTextPresentCheck"
+            app:backgroundTint="@color/cardview_light_background"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

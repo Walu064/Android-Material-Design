@@ -19,4 +19,7 @@
     <string name="empty">empty</string>
     <string name="Username">Username</string>
     <string name="insert_data_in_fields_below">Insert data in fields below:</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="insert_new_content_here">Insert new content here...</string>
+    <string name="insert_new_title_here">Insert new title here...</string>
 </resources>
